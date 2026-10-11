@@ -1,0 +1,264 @@
+:root {
+  --plum: #2E1D31;
+  --card: #3D2740;
+  --cream: #F6E7D8;
+  --cream-muted: rgba(246, 231, 216, 0.62);
+  --gold: #F2C46D;
+  --coral: #F2A07B;
+  --mint: #8FD3B6;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(242, 160, 123, 0.10), transparent 70%),
+    var(--plum);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Masthead */
+
+.masthead {
+  padding: 4.5rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 9vw, 3.6rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  color: var(--cream);
+}
+
+.thread {
+  display: block;
+  width: min(220px, 60vw);
+  height: auto;
+  margin: 1.1rem auto 0.9rem;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  color: var(--cream-muted);
+}
+
+/* Policy */
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.policy {
+  scroll-margin-top: 1rem;
+  background: var(--card);
+  border-radius: 1.25rem;
+  padding: 2.25rem 2.5rem 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* English is the default; Turkish only shows when targeted (#tr). */
+#tr {
+  display: none;
+}
+
+#tr:target {
+  display: block;
+}
+
+#tr:target ~ #en {
+  display: none;
+}
+
+.lang-switch {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream-muted);
+}
+
+.lang-switch a {
+  color: var(--cream-muted);
+  text-decoration: none;
+  padding: 0.15rem 0.1rem;
+  border-bottom: 1px solid transparent;
+}
+
+.lang-switch a:hover {
+  color: var(--coral);
+}
+
+.lang-switch a[aria-current="page"] {
+  color: var(--coral);
+  border-bottom-color: var(--coral);
+}
+
+.policy-title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+}
+
+.updated {
+  margin: 0.35rem 0 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--cream-muted);
+}
+
+section + section {
+  margin-top: 2.25rem;
+}
+
+h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--gold);
+}
+
+p {
+  margin: 0 0 0.9rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+ul:last-child {
+  margin-bottom: 0;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}
+
+li::marker {
+  color: var(--coral);
+}
+
+a {
+  color: var(--coral);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Summary box */
+
+.summary {
+  margin-bottom: 2.5rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid rgba(143, 211, 182, 0.45);
+  border-left: 4px solid var(--mint);
+  border-radius: 0.875rem;
+  background: rgba(143, 211, 182, 0.08);
+}
+
+.summary h3 {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+
+.summary li::marker {
+  color: var(--mint);
+}
+
+/* Footer */
+
+.footer {
+  padding: 2.5rem 1.5rem 3rem;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--cream-muted);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Small screens */
+
+@media (max-width: 560px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .masthead {
+    padding: 3rem 1.25rem 2rem;
+  }
+
+  main {
+    padding: 0 0.75rem;
+  }
+
+  .policy {
+    border-radius: 1rem;
+    padding: 1.75rem 1.25rem 2rem;
+  }
+
+  .summary {
+    padding: 1.1rem 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
